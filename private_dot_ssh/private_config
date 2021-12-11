@@ -1,0 +1,22 @@
+Host zzz
+	HostName easyquest.host
+	Port 22
+	User zzz
+Host root
+	HostName 62.113.97.198
+	Port 22
+	User root
+Host beget
+  HostName  easyqubx.beget.tech
+  Port 22
+  User easyqubx
+Host sweet
+  HostName 5.101.153.158
+  Port 22
+  User easyqubx
+Host ccc
+  HostName easyquest.host
+  Port 22
+  User ccc
+
+

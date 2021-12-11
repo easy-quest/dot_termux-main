@@ -1,0 +1,9 @@
+:insert
+#!/data/data/com.termux/files/usr/bin/env bash
+#=============================================================================
+# basic.bash --- basic script files     
+# Copyright (c) 2016-2021 nvspc EasyQuest
+# Author: Ivan Yastrebov < easy-quest@mail.ru >
+# URL: https://easyquest.host
+#=============================================================================
+.

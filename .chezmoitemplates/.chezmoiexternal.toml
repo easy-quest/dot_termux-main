@@ -1,0 +1,27 @@
+
+# other operating system
+# [".oh-my-zsh/custom/plugins/fzf/key-bindings.zsh"]
+    # type = "file"
+    # url = "https://easypass.keybase.pub/fzf/key-bindings.zsh"
+    # refreshPeriod = "168h"
+# [".oh-my-zsh/custom/plugins/fzf/completion.zsh"]
+    # type = "file"
+    # url = "https://easypass.keybase.pub/fzf/completion.zsh"
+    # refreshPeriod = "168h"
+[".oh-my-zsh"]
+    type = "archive"
+    url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+[".oh-my-zsh/custom/themes/powerlevel10k"]
+    type = "archive"
+    url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
+    exact = true
+    stripComponents = 1
+[".oh-my-zsh/custom/plugins"]
+    type = "archive"
+    url = "https://easypass.keybase.pub/plugins.tar.gz"
+    exact = true
+    stripComponents = 1
+

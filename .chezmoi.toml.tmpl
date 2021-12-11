@@ -1,0 +1,13 @@
+{{- $email := promptString "email" -}}
+{{- $name := promptString "name" -}}
+
+[data]
+  email = {{ $email | quote }}
+  name = {{ $name | quote }}
+
+[git]
+  autoAdd = true
+  autoPush = true
+
+[edit]
+  command = "vim"

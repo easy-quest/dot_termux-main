@@ -1,0 +1,36 @@
+#!/data/data/com.termux/files/usr/bin/python3
+# -*- coding: utf-8 -*-
+#authors: @zzz
+
+# {{ .chezmoi.os }}
+
+from os import system as cmd
+from click import secho as echo
+
+def update():
+    """обновляет пакеты в системе"""
+    if cmd('pkg up -y >/dev/null 2>&1 &'):
+         echo('Установка прервана ERROR', bg='red', fg='black')
+    else:
+        echo('Обновление PKG завершено...', bg='green', fg='black')
+    return
+
+def get_autoremove():
+  """удаленин ненужных пакетов с системы"""
+    if cmd('pkg clean -y >/dev/null 2>&1 &'):
+        echo('Установка прервана ERROR', bg='red', fg='black')
+    else:
+        echo('Автоматическое удаление PKG  завершено...',
+             bg='green',
+             fg='black')
+    return
+
+def main():
+    update()
+    get_autoremove()
+    retur
+
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/sh
+    
+termux-wake-lock    
+sshd -p8022 && echo "sshd запущена"
+tor

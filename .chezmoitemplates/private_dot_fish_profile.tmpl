@@ -1,0 +1,152 @@
+set EDITOR (command -v nvim)
+
+set -Ux LYNX_CFG ~/.lynx.cfg
+set -Ux WWW_HOME https://easy-quest.github.io/web/index.html
+## Useful aliases
+# Replace ls with exa
+alias ls='exa --color=always --group-directories-first --icons' # preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+
+
+set -Ux TSOCKS_PASSWORD  '000'
+alias cat='bat --style header --style rules --style snip --style changes --style header'
+
+{{ if (eq .chezmoi.os "android") }}
+# android
+alias tarnow='tar -acf '
+alias untar='tar -zxvf '
+alias wget='wget -c '
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+# abbr
+
+abbr fix 'termux-fix-shebang '
+abbr m 'micro '
+abbr rm 'rm -Rf '
+abbr xclip 'termux-clipboard-set '
+abbr xx 'chmod +x '
+abbr z 'chezmoi '
+abbr ze 'chezmoi edit --apply '
+
+{{ else if (eq .chezmoi.os "linux" ) }}
+# linux
+# Common use
+alias grubup="sudo update-grub"
+alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+alias tarnow='tar -acf '
+alias untar='tar -zxvf '
+
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+alias upd='/usr/bin/update'
+
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias hw='hwinfo --short'                                   # Hardware Info
+alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
+
+{{ else if (eq .chezmoi.osRelease.id "garuda" ) }}
+# Garuda
+# другая операционная система
+alias apt='man pacman'
+alias apt-get='man pacman'
+# Cleanup orphaned packages
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
+alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
+alias rmpkg="sudo pacman -Rdd"
+
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" 
+alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist" 
+alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist" 
+alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist" 
+
+{{ end }}
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+alias pl='sudo'
+alias tb='nc termbin.com 9999'
+
+# Get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# Recent installed packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
+set VIM (command -v nvim)
+alias v='$NVIM'
+alias vh='$NVIM -c ":h | only"'
+alias xx='chmod +x'
+
+# Shell History
+alias h='history'
+# Directory
+alias md='mkdir -p'
+alias rd='rmdir'
+# Shorten extract
+alias xt="extract"
+
+########## Language aliases #############
+alias rb='ruby'
+alias py='python'
+alias ipy='ipython'
+alias pi='pip install -U'
+
+alias c='clear'
+alias k='clear'
+alias cls='clear'
+
+alias edit="$EDITOR"
+alias pager="$PAGER"
+
+alias q='exit'
+
+## My_config #
+
+
+
+set -gx PATH ~/go/bin $PATH
+set -gx PATH $HOME/go/bin $PATH
+set -Ux GOBIN $HOME/go/bin
+set -Ux GOPATH $HOME/go
+set -Ux GO111MODULE on
+set PIPENV_IGNORE_VIRTUALENVS 1
+set PIPENV_VENV_IN_PROJECT 1
+set POETRY_VIRTUALENVS_PATH ./.venv
+
+function venv
+  python -m venv .venv $argv
+  printf "source .venv/bin/activate" > .envrc $argv
+  direnv allow $argv
+  pip install -U pip setuptools wheel pylint yapf isort pip-tools $argv
+end
+
+function pud 
+    pip install -U pip setuptools wheel pylint yapf isort pip-tools $argv
+    pip install -U -r requirements.txt
+    pip freeze > requirements.in
+    pip-compile
+    rm requirements.in
+    pip install -U -r requirements.txt
+end
+
+function gp
+  set text (uname -o; date)
+  git add -A $argv
+  git commit -m "$text"
+  git push $argv
+end
+
+
+set -Ux LYNX_CFG $HOME/.lynx.cfg

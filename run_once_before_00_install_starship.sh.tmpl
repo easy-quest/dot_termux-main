@@ -1,0 +1,15 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+
+{{- if (eq .chezmoi.os "android") }}
+if command -v c &> /dev/null
+then
+  echo "starship уже установлен"
+  exit
+fi
+{{- end }}
+
+{{- if (eq .chezmoi.os "android") }}
+pkg install starship -y
+{{- else }}
+#sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
+{{- end }}
