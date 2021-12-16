@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/env fish
+#!/data/data/com.termux/files/usr/bin/fish
 
 for abbreviation in (abbr -l)
     abbr -e $abbreviation
@@ -13,3 +13,4 @@ abbr rm 'rm -Rf '
 abbr xx 'chmod +x '
 abbr z 'chezmoi '
 abbr ze 'chezmoi edit --apply '
+abbr fix 'termux-fix-shebang '
