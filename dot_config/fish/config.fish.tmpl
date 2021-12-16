@@ -62,7 +62,7 @@ alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed pac
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 ######################################################
-{{ else if (eq .chezmoi.os "linux" ) }}
+{{ else if (eq .chezmoi.osRelease.id "garuda") }}
 ######################################################
 
 ## Starship prompt
