@@ -2,4 +2,4 @@
     
 termux-wake-lock    
 sshd -p8022
-python -c "from click import secho as echo;echo("sshd Запущен!!!",bg='yellow',fg='black')"
+python -c "from click import secho as echo;echo('sshd Запущен!!!',bg='yellow',fg='black')"
