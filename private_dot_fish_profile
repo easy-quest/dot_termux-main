@@ -2,3 +2,20 @@ function gp
     set text (uname --operating-system), (date)
     git add -A;git commit -m "$text";git push $argv;
 end
+
+function venv
+  python -m venv .venv $argv;
+  .venv/bin/python -m pip install -U pip setuptools wheel pip-tools yapf autoflake isort coverage $argv;
+end
+
+function envrc
+  printf "#!/usr/bin/env bash \nsource .venv/bin/activate" > .envrc;direnv allow
+end
+
+function ff --description 'Как **, но возвращает только обычные файлы.'
+    # Это также игнорирует каталоги .git.
+    find . \( -name .git -type d -prune \) -o -type f | \
+        sed -n -e '/^\.\/\.git$/n' -e 's/^\.\///p'
+end
+
+alias zz='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
