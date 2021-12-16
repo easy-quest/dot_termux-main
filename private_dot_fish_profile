@@ -1,0 +1,4 @@
+function gp
+    set text (uname --operating-system), (date)
+    git add -A;git commit -m "$text";git push $argv;
+end
