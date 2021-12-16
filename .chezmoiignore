@@ -4,3 +4,4 @@ LICENSE
 private_template
 install.sh
 my_abbr.sh
+coc-vimrc/
