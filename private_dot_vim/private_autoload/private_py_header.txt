@@ -5,3 +5,4 @@
 # @author : fnamemodify(expand("~"), ":t")
 # @created : strftime("%Y-%m-%d")
 .
+$0
