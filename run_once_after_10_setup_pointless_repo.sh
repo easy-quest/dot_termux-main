@@ -3,7 +3,7 @@
 apt-get update
 apt-get --assume-yes upgrade
 apt-get --assume-yes install coreutils gnupg
-pkg i root-repo  x11-repo -y
+pkg i termux-apt-repo science-repo proxmark3-git myrepos unstable-repo root-repo x11-repo -y
 # Создайте каталог sources.list.d (источники.список.d)
 mkdir -p $PREFIX/etc/apt/sources.list.d
 # Напишите необходимый исходный файл 
