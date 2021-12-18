@@ -2,4 +2,5 @@
     
 termux-wake-lock    
 sshd -p8022
+. $PREFIX/etc/profile
 python -c "from click import secho as echo;echo('sshd Запущен!!!',bg='yellow',fg='black')"
