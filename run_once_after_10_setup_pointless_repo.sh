@@ -18,5 +18,7 @@ curl -sLo $PREFIX/etc/apt/trusted.gpg.d/pointless.gpg --create-dirs https://its-
 elif [ -n $(command -v wget) ]; then
 wget -qP $PREFIX/etc/apt/trusted.gpg.d https://its-pointless.github.io/pointless.gpg
 fi
+pkg install numpy -y
+pkg install scipy -y
 # Update apt
 apt update

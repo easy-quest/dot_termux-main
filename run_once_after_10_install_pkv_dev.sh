@@ -6,7 +6,5 @@
 # URL: https://easyquest.host
 #=============================================================================
 pkg up  -y
-pkg install numpy
-pkg install scipy
 
 pkg i libgmp libmpc libmpfr libxml2 libxslt freetype libjpeg-turbo libpng libsodium libzmq -y
