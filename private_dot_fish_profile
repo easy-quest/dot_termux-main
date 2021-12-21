@@ -9,7 +9,7 @@ function venv
 end
 
 function envrc
-  printf "#!/usr/bin/env bash \nsource .venv/bin/activate" > .envrc;direnv allow
+  printf "#!/data/data/com.termux/files/usr/bin/bash \nsource .venv/bin/activate" > .envrc;direnv allow
 end
 
 function ff --description 'Как **, но возвращает только обычные файлы.'
@@ -18,4 +18,4 @@ function ff --description 'Как **, но возвращает только о�
         sed -n -e '/^\.\/\.git$/n' -e 's/^\.\///p'
 end
 
-alias zz='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias zz='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
