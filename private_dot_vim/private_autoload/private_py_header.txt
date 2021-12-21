@@ -1,7 +1,6 @@
 :insert
 #!/usr/bin/env python3 
 # -*- coding: utf-8 -*- 
-# Created By : Ivan Yastrebov < mail@mail.ru >
-# @author : fnamemodify(expand("~"), ":t")
+# Created By : Ivan Yastrebov < esim.i2p@gmail.com >
 # @created : strftime("%Y-%m-%d")
 .
