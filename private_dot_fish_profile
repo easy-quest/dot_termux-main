@@ -22,3 +22,4 @@ alias zz='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 set -gx fish_user_paths ~/go/bin $fish_user_paths
 set XDG_CONFIG_HOME ~/.config
+set XDG_DATA_HOME ~/.local/share
