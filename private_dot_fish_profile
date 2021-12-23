@@ -15,7 +15,7 @@ end
 function ff --description 'Как **, но возвращает только обычные файлы.'
     # Это также игнорирует каталоги .git.
     find . \( -name .git -type d -prune \) -o -type f | \
-        sed -n -e '/^\.\/\.git$/n' -e 's/^\.\///p'
+     sed -n -e '/^\.\/\.git$/n' -e 's/^\.\///p'
 end
 
 alias zz='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
