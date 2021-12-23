@@ -19,3 +19,5 @@ function ff --description 'Как **, но возвращает только о�
 end
 
 alias zz='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+set -gx fish_user_paths ~/go/bin $fish_user_paths
